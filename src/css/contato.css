@@ -1,0 +1,73 @@
+
+/* *---------- CONTATO --------- */
+#contato {
+    display: flex;
+    width: 100%;
+    background-image: linear-gradient(rgba(185, 173, 173, 0.705), rgba(70, 70, 70, 0.2)), url(/portifolio/src/mar.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    background-attachment: fixed;
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+
+.container-contato {
+    background-color: #FDF3E9;
+    width: 80%;
+    padding-top: 50px;
+    justify-items: center;
+    padding-bottom: 50px;
+    border-radius: 10px;
+  
+   
+}
+
+
+.contato-info {
+    width: 80%;
+    margin-top: 5%;
+}
+
+
+
+
+form {
+    width: 100%;
+    justify-items: center;
+}
+
+span{
+    display: none;
+    color: red;
+}
+
+
+a {
+    color: rgb(33 42 56);
+    text-decoration: underline;
+}
+
+
+.btn{
+    background-color: #EFBCA7;
+    border: none;
+    
+    padding: 5px 50px 5px 50px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 20px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+
+.btn:hover {
+    background-color: #EEB178;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+
