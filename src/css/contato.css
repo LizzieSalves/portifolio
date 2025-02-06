@@ -56,7 +56,6 @@ a {
 .btn{
     background-color: #EFBCA7;
     border: none;
-    
     padding: 5px 50px 5px 50px;
     border-radius: 5px;
     font-weight: 500;
@@ -64,6 +63,7 @@ a {
     font-size: 15px;
     transition: all 0.2s ease;
 }
+
 
 
 .btn:hover {

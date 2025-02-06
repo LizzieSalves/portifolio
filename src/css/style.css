@@ -474,7 +474,7 @@ footer {
 }
 
 .redes-sociais {
-    justify-content: first baseline;
+     justify-content: first baseline;
 }
 
 
@@ -489,7 +489,7 @@ footer {
     }
 
     .redes-sociais {
-        justify-content: first baseline;
+      justify-content: first baseline;
     }
 
 }
@@ -498,8 +498,8 @@ footer {
 @media (min-width: 375px) {
 
 
-
+/* 
     #info-footer {
         display: flex;
-    }
+    } */
 }
