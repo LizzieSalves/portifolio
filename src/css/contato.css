@@ -1,9 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat;
+    color: #320505;
+
+}
 
 /* *---------- CONTATO --------- */
+
+
 #contato {
     display: flex;
     width: 100%;
-    background-image: linear-gradient(rgba(185, 173, 173, 0.705), rgba(70, 70, 70, 0.2)), url(/portifolio/src/mar.jpg);
+    background-image: linear-gradient(rgba(185, 173, 173, 0.705), rgba(70, 70, 70, 0.2)), url(/src/mar.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,16 +59,11 @@ span{
 }
 
 
-a {
-    color: rgb(33 42 56);
-    text-decoration: underline;
-}
-
-
-.btn{
+#btn-enviar{
     background-color: #EFBCA7;
     border: none;
     padding: 5px 50px 5px 50px;
+    margin-top: 20px;
     border-radius: 5px;
     font-weight: 500;
     font-size: 20px;
@@ -66,8 +73,12 @@ a {
 
 
 
-.btn:hover {
+#btn-enviar:hover {
     background-color: #EEB178;
     transform: scale(1.1); /* Slight zoom effect on hover */
   }
 
+#url {
+    color: #746fd1;
+    text-decoration: underline;
+}
