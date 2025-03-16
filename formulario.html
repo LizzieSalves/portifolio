@@ -1,0 +1,129 @@
+!<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Validado</title>
+    <style>
+        /* Estilos básicos para os erros */
+        .span-required {
+            color: red;
+            font-size: 0.8em;
+            display: none; /* Inicialmente oculto */
+        }
+        .required {
+            border: 1px solid #ccc; /* Borda padrão */
+        }
+        .required:invalid {
+            border-color: red; /* Borda vermelha para campos inválidos */
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" class="required">
+            <span class="span-required">O nome deve ter pelo menos 3 caracteres.</span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="required">
+            <span class="span-required">Insira um email válido.</span>
+        </div>
+        <div>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" class="required">
+            <span class="span-required">O telefone deve ter 11 dígitos.</span>
+        </div>
+        <div>
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" class="required"></textarea>
+            <span class="span-required">A mensagem deve ter pelo menos 2 caracteres.</span>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        // Coloque aqui o código JavaScript fornecido anteriormente
+        const form = document.getElementById('form');
+        const campos = document.querySelectorAll('.required');
+        const spans = document.querySelectorAll('.span-required');
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        function setError(index) {
+            campos[index].style.border = '1px solid red';
+            spans[index].style.display = 'block';
+        }
+
+        function removeError(index) {
+            campos[index].style.border = '';
+            spans[index].style.display = 'none';
+        }
+
+        function nomeValidacao() {
+            if (campos[0].value.length < 3) {
+                setError(0);
+                return false;
+            } else {
+                removeError(0);
+                return true;
+            }
+        }
+
+        function emailValidacao() {
+            if (!emailRegex.test(campos[1].value)) {
+                setError(1);
+                return false;
+            } else {
+                removeError(1);
+                return true;
+            }
+        }
+
+        function telefoneValidacao() {
+            if (campos[2].value.length < 11 || campos[2].value.length > 11) {
+                setError(2);
+                return false;
+            } else {
+                removeError(2);
+                return true;
+            }
+        }
+
+        function mensagemValidacao() {
+            if (campos[3].value.length < 2) {
+                setError(3);
+                return false;
+            } else {
+                removeError(3);
+                return true;
+            }
+        }
+
+        
+        function permitirApenasNumeros(event) {
+            event.target.value = event.target.value.replace(/\D/g, '');
+        }
+
+        campos[2].addEventListener('input', permitirApenasNumeros);
+
+        function validarFormulario() {
+            const nomeValido = nomeValidacao();
+            const emailValido = emailValidacao();
+            const telefoneValido = telefoneValidacao();
+            const mensagemValida = mensagemValidacao();
+
+            return nomeValido && emailValido && telefoneValido && mensagemValida;
+        }
+
+        form.addEventListener('submit', function (event) {
+            if (!validarFormulario()) {
+                event.preventDefault();
+            } else {
+                alert('Formulário enviado com sucesso!');
+            }
+        });
+    </script>
+</body>
+</html>
