@@ -23,17 +23,16 @@
 </head>
 
 <body>
-  
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DZ73RJL" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-
   <!-- Contato -->
   <section id="contato">
     <div class="container-contato container">
-      <h1>Tire suas dúvidas sobre a LGPD</h1>
+      <h1>Contato</h1>
       <form id="form" action="https://api.sheetmonkey.io/form/4aAhixWDu5oYWgczGdRbj9" method="post">
         <div class="contato-info">
           <div class="mb-3">
@@ -49,32 +48,32 @@
             <span class="span-required">Email obrigatório ou inválido!</span>
           </div>
           <div class="mb-3">
-            <label for="nome" class="form-label">Seu número (Opcional):</label>
+            <label for="nome" class="form-label">Seu número (WhatsApp):</label>
             <input type="tel" class="form-control required" id="tel" placeholder="Digite seu número..."
-              data-sb-validations="required" name="Telefone" oninput="permitirApenasNumeros(event)">
-            <!-- <span class="span-required">Telefone obrigatório ou inválido!</span> -->
+              data-sb-validations="required" name="Telefone" oninput="telefoneValidacao()">
+            <span class="span-required">Telefone obrigatório ou inválido!</span>
           </div>
           <div class="mb-3">
             <label for="message" class="form-label">Mensagem:</label>
             <textarea class="form-control required" id="mensagem" name="Mensagem" type="text"
-              placeholder="Sua mensagem..." data-sb-validations="required" rows="5"
+              placeholder="Enter your message here..." data-sb-validations="required" rows="5"
               oninput="mensagemValidacao()"></textarea>
             <span class="span-required">Mensagem obrigatória!</span>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
+            <input class="form-check-input required" type="checkbox" value="" id="invalidCheck3"
               aria-describedby="invalidCheck3Feedback" required>
             <label class="form-check-label" for="invalidCheck3" id="invalidCheck3Feedback" class="invalid-feedback">
               Aceito os termos e políticas de privacidade.
             </label>
           </div>
           <div>
-            <a href="./politicaPrivacidade.html" id="url">Leia sobre a Política de Privacidade para saber mais sobre
+            <a href="./politicaPrivacidade.html" target="_blank" id="url">Leia sobre a Política de Privacidade para saber mais sobre
               como tratamos seus dados pessoais.</a>
           </div>
         </div>
         <div>
-          <button class="buttom" id="btn-enviar">Enviar</button>
+          <button type="submit" class="btn" id="btn-enviar">Enviar</button>
         </div>
       </form>
 
@@ -82,6 +81,114 @@
 
   </section>
 
+
+  <script>
+
+    const form = document.getElementById('form');
+    const campos = document.querySelectorAll('.required');
+    const spans = document.querySelectorAll('.span-required');
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Função para exibir erro
+    function setError(index) {
+      campos[index].style.border = '1px solid red';
+      spans[index].style.display = 'block';
+    }
+
+    // Função para remover erro
+    function removeError(index) {
+      campos[index].style.border = '';
+      spans[index].style.display = 'none';
+    }
+
+    // Validação do nome
+    function nomeValidacao() {
+      if (campos[0].value.length < 3) {
+        setError(0);
+        return false;
+      } else {
+        removeError(0);
+        return true;
+      }
+    }
+
+    // Validação do email
+    function emailValidacao() {
+      if (!emailRegex.test(campos[1].value)) {
+        setError(1);
+        return false;
+      } else {
+        removeError(1);
+        return true;
+      }
+    }
+
+    // Validação do telefone
+    function telefoneValidacao() {
+      if (campos[2].value.length < 11 || campos[2].value.length > 11) {
+        setError(2);
+        return false;
+      } else {
+        removeError(2);
+        return true;
+      }
+    }
+
+    // Permitir apenas números no campo de telefone
+    function permitirApenasNumeros(event) {
+      event.target.value = event.target.value.replace(/\D/g, '');
+      telefoneValidacao(); // Chama a validação do telefone após formatar o valor
+    }
+
+    // Validação da mensagem
+    function mensagemValidacao() {
+      if (campos[3].value.length < 2) {
+        setError(3);
+        return false;
+      } else {
+        removeError(3);
+        return true;
+      }
+    }
+
+    // Validação do checkbox de termos
+    function termosValidacao() {
+      const checkbox = document.getElementById('invalidCheck3');
+      if (!checkbox.checked) {
+        document.getElementById('invalidCheck3Feedback').style.color = 'red';
+        return false;
+      } else {
+        document.getElementById('invalidCheck3Feedback').style.color = '';
+        return true;
+      }
+    }
+
+    // Função para validar todo o formulário
+    function validarFormulario() {
+      const nomeValido = nomeValidacao();
+      const emailValido = emailValidacao();
+      const telefoneValido = telefoneValidacao();
+      const mensagemValida = mensagemValidacao();
+      const termosValidos = termosValidacao();
+
+      // Retorna true apenas se todos os campos estiverem válidos
+      return nomeValido && emailValido && telefoneValido && mensagemValida && termosValidos;
+    }
+
+    // Adiciona o evento de submit ao formulário
+    form.addEventListener('submit', function (event) {
+      // Impede o envio do formulário se a validação falhar
+      if (!validarFormulario()) {
+        event.preventDefault();
+      } else {
+        alert('Formulário enviado com sucesso!');
+      }
+    });
+
+    // Adiciona o evento de input para o campo de telefone
+    campos[2].addEventListener('input', permitirApenasNumeros);
+
+  </script>
 
 
 

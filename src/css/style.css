@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #FDF3E9;
+    background-color: #F7E6DE;
     justify-self: center;
     height: auto;
 }
@@ -54,7 +54,7 @@ body {
 
 .offcanvas {
     background-color: #FDF3E9;
-    --bs-offcanvas-width: 200px;
+    --bs-offcanvas-width: 300px;
 }
 
 .offcanvas-header {
@@ -64,7 +64,7 @@ body {
 /* * main */
 
 .grade-parallax {
-    background-image: url(src/grade.png);
+    background-image: url(/src/grade.png);
     width: 100%;
     height: 100px;
     background-attachment: fixed;
@@ -79,14 +79,14 @@ main {
 
 /* * Inicio */
 #inicio {
-    background-image: url(src/papel.png);
+    background-image: url(/src/papel.png);
     width: auto;
     display: flex;
     padding-top: 100px;
     padding-bottom: 50px;
 }
 
-.container-inicio{
+.container-inicio {
     justify-items: center;
 }
 
@@ -97,7 +97,7 @@ main {
 #foto img {
     width: 100%;
     border-radius: 20px;
-} 
+}
 
 
 
@@ -114,7 +114,7 @@ button {
 .btn {
     background-color: #EFBCA7;
     border: none;
-    
+
     padding: 5px 50px 5px 50px;
     border-radius: 5px;
     font-weight: 500;
@@ -126,14 +126,15 @@ button {
 
 .btn:hover {
     background-color: #EEB178;
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
+    transform: scale(1.1);
+    /* Slight zoom effect on hover */
+}
 
 
-  a{
+a {
     color: #320505;
-    text-decoration: none; 
-  }
+    text-decoration: none;
+}
 
 /* * --------- SOBRE-MIM ----------- */
 #sobre {
@@ -196,12 +197,13 @@ button {
 #container-ferramentas {
     margin-bottom: 50px;
     justify-items: center;
+    
 
 
 }
 
 .ferramentas {
-    padding: 10px 5px 0px 5px;
+    padding: 30px 5px 0px 5px;
 }
 
 .ferramentas figure {
@@ -232,15 +234,44 @@ button {
 
 
 .icon {
-   
+
     transition: all 0.2s ease;
 }
 
 
 .icon:hover {
-   
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
+
+    transform: scale(1.1);
+    /* Slight zoom effect on hover */
+}
+
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    color: var(--bs-btn-active-color);
+    background-color: #EEB178;
+    border-color: none;
+}
+
+.btn:focus-visible {
+    /* color: var(--bs-btn-hover-color); */
+    background-color: #EEB178;
+    border-color: #EEB178;
+    outline: 0;
+    
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+.btn-icon{
+    border-radius: 100%;
+    padding: 20px;
+}
+
 
 /* * ------ Habilidades ------------*/
 #habilidades {
@@ -359,12 +390,13 @@ button {
 
 
 
+
 /* * Footer */
+
 
 footer {
     width: auto;
     height: auto;
-    background-color: #F7E6DE;
     padding-bottom: 50px;
     justify-items: center;
 }
@@ -392,21 +424,21 @@ footer {
 
 
 .links-footer a {
-    padding: 0px;
-    margin: 0px;
+    color: #320505;
 
 }
 
-#redes-sociais {
-    justify-items: center;
-}
-
-
-#redes-sociais figure {
-    width: auto;
-    margin: 0px 5px 0px 5px;
+footer a:hover {
+    color: #320505;
+    text-decoration: underline;
 
 }
+
+
+/* 
+.Copyright{
+    text-decoration: underline;
+} */
 
 
 
@@ -454,7 +486,7 @@ footer {
     }
 
 
-    #foto{
+    #foto {
         width: 50%;
     }
 
@@ -463,7 +495,7 @@ footer {
 
     }
 
-   
+
 }
 
 
@@ -474,7 +506,7 @@ footer {
 }
 
 .redes-sociais {
-     justify-content: first baseline;
+    justify-content: first baseline;
 }
 
 
@@ -489,7 +521,7 @@ footer {
     }
 
     .redes-sociais {
-      justify-content: first baseline;
+        justify-content: first baseline;
     }
 
 }
@@ -498,7 +530,7 @@ footer {
 @media (min-width: 375px) {
 
 
-/* 
+    /* 
     #info-footer {
         display: flex;
     } */
